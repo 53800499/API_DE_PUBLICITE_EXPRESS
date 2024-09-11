@@ -32,7 +32,7 @@ app.post('/api/post-to-facebook', async (req, res) => {
         if (response.data.id) {
             return res.json({ message: 'Publication réussie sur Facebook !', postId: response.data.id });
         } else {
-            return res.status(500).json({ error: "Erreur lors de la publication.", response: response.data });
+            return res.status(500).json({ error: "Erreur lors de la publication. Veillez entrer un token ayant les permissions requises", response: response.data });
         }
     } catch (error) {
         return res.status(500).json({ error: 'Erreur lors de la requête à l\'API Facebook.', details: error.message });
